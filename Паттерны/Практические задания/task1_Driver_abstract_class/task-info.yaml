@@ -1,0 +1,99 @@
+type: output
+files:
+- name: tests/output.txt
+  visible: false
+  text: |
+    [1, 2, 3]
+  learner_created: false
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 701
+    length: 57
+    placeholder_text: '...  # TODO реализовать драйвер работы с текстовым файлом'
+    initial_state:
+      length: 57
+      offset: 701
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      def __init__(self, filename):
+              self.filename = filename
+  - offset: 764
+    length: 47
+    placeholder_text: '# TODO реализовать метод чтения данных из файла'
+    initial_state:
+      length: 47
+      offset: 764
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      def read(self) -> Iterable:
+              with open(self.filename) as f:
+                  return [int(line) for line in f]
+  - offset: 817
+    length: 48
+    placeholder_text: '# TODO реализовать метод записи в файл построчно'
+    initial_state:
+      length: 48
+      offset: 817
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      def write(self, data: Iterable) -> None:
+              with open(self.filename, "w") as f:
+                  for value in data:
+                      f.write(str(value))
+                      f.write('\n')
+  text: |
+    from typing import Iterable
+    from abc import ABC, abstractmethod
+
+
+    class IStructureDriver(ABC):
+        @abstractmethod
+        def read(self) -> Iterable:
+            """
+            Считывает информацию из драйвера и возвращает её для объекта, использующего этот драйвер
+
+            :return Последовательность элементов, считанная драйвером, для объекта
+            """
+            pass
+
+        @abstractmethod
+        def write(self, data: Iterable) -> None:
+            """
+            Получает информацию из объекта, использующего этот драйвер, и записывает её в драйвер
+
+            :param data Последовательность элементов, полученная от объекта, для записи драйвером
+            """
+            pass
+
+
+    class SimpleFileDriver(IStructureDriver):
+        ...  # TODO реализовать драйвер работы с текстовым файлом
+
+        # TODO реализовать метод чтения данных из файла
+
+        # TODO реализовать метод записи в файл построчно
+
+        def __repr__(self):
+            return f"{self.__class__.__name__}(\"{self.filename}\")"
+
+
+    if __name__ == '__main__':
+        write_data = [1, 2, 3]
+        driver = SimpleFileDriver('output.txt')
+        driver.write(write_data)
+
+        read_data = driver.read()
+        print(read_data)
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+status: Unchecked
+record: -1

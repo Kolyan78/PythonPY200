@@ -1,0 +1,37 @@
+type: edu
+files:
+- name: task.py
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 17
+    placeholder_text: '# TODO class Date'
+    initial_state:
+      length: 17
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |
+      # TODO
+  text: '# TODO class Date'
+  learner_created: false
+- name: tests/test_task.py
+  visible: false
+  text: |
+    import unittest
+
+
+    # todo: replace this with an actual test
+    class TestCase(unittest.TestCase):
+        def test_add(self):
+            ...
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: tests/__init__.py
+  visible: false
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,4 @@
+Вызван setter
+Вызван setter
+Вызван setter
+Node(1, Node(2)) Node(2, None)

@@ -1,0 +1,367 @@
+type: theory
+files:
+- name: input.txt
+  visible: true
+  text: |
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+  learner_created: false
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 181
+    length: 42
+    placeholder_text: '...):  # TODO наследовать класс LinkedList'
+    initial_state:
+      length: 42
+      offset: 181
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'LinkedList):'
+  - offset: 312
+    length: 68
+    placeholder_text: '...  # TODO расширяем конструктор, чтобы в связном списке был
+      driver'
+    initial_state:
+      length: 68
+      offset: 312
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      super().__init__(data)
+              self.driver = driver
+  - offset: 489
+    length: 38
+    placeholder_text: '...  # TODO считать данные из драйвера'
+    initial_state:
+      length: 38
+      offset: 489
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      data_from_driver = self.driver.read()
+
+              self.clear()
+              for value in data_from_driver:
+                  self.append(value)
+  - offset: 624
+    length: 46
+    placeholder_text: '...  # TODO записать данные с помощью драйвера'
+    initial_state:
+      length: 46
+      offset: 624
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: self.driver.write(self)
+  - offset: 709
+    length: 56
+    placeholder_text: '...  # TODO инициализировать пустой LinkedListWithDriver'
+    initial_state:
+      length: 56
+      offset: 709
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: LinkedListWithDriver()
+  - offset: 817
+    length: 48
+    placeholder_text: '# TODO инициализировать драйвер и считать данные'
+    initial_state:
+      length: 48
+      offset: 817
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      ll.driver = SimpleFileFactoryMethod.get_driver()
+          ll.read()
+  - offset: 934
+    length: 41
+    placeholder_text: '# TODO заменить драйвер и записать данные'
+    initial_state:
+      length: 41
+      offset: 934
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      ll.driver = SimpleFileFactoryMethod.get_driver()
+          ll.write()
+  text: |
+    from typing import Iterable
+
+    from linked_list import LinkedList
+    from drivers import IStructureDriver
+    from factory_method import SimpleFileFactoryMethod
+
+
+    class LinkedListWithDriver(...):  # TODO наследовать класс LinkedList
+        def __init__(self, data: Iterable = None, driver: IStructureDriver = None):
+            ...  # TODO расширяем конструктор, чтобы в связном списке был driver
+
+        def read(self):
+            """ С помощью драйвера считать данные и поместить их в LinkedList. """
+            ...  # TODO считать данные из драйвера
+
+        def write(self):
+            """ С помощью драйвера записать данные из LinkedList. """
+            ...  # TODO записать данные с помощью драйвера
+
+
+    if __name__ == '__main__':
+        ll = ...  # TODO инициализировать пустой LinkedListWithDriver
+        print("Считать данные из файла input.txt")
+        # TODO инициализировать драйвер и считать данные
+        print(ll)
+
+        print("Записать данные в файл по умолчанию")
+        # TODO заменить драйвер и записать данные
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: node.py
+  visible: true
+  text: |
+    from typing import Any, Optional
+
+
+    class Node:
+        """ Класс, который описывает узел связного списка. """
+
+        def __init__(self, value: Any, next_: Optional["Node"] = None):
+            """
+            Создаем новый узел для односвязного списка
+            :param value: Любое значение, которое помещено в узел
+            :param next_: следующий узел, если он есть
+            """
+            self.value = value
+            self.next = next_  # вызовется setter
+
+        def __repr__(self) -> str:
+            return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"
+
+        def __str__(self) -> str:
+            return str(self.value)
+
+        def is_valid(self, node: Any) -> None:
+            if not isinstance(node, (type(None), Node)):
+                raise TypeError
+
+        @property
+        def next(self):
+            return self._next
+
+        @next.setter
+        def next(self, next_: Optional["Node"]):
+            self.is_valid(next_)
+            self._next = next_
+  learner_created: false
+- name: linked_list.py
+  visible: true
+  text: |
+    from typing import Any, Iterable, Optional
+
+    from node import Node
+
+
+    class LinkedList:
+        def __init__(self, data: Iterable = None):
+            """Конструктор связного списка"""
+            self.len = 0
+            self.head: Optional[Node] = None
+            self.tail = self.head
+
+            if data is not None:
+                for value in data:
+                    self.append(value)
+
+        def append(self, value: Any):
+            """ Добавление элемента в конец связного списка. """
+            append_node = Node(value)
+
+            if self.head is None:
+                self.head = self.tail = append_node
+            else:
+                self.linked_nodes(self.tail, append_node)
+                self.tail = append_node
+
+            self.len += 1
+
+        def step_by_step_on_nodes(self, index: int) -> Node:
+            """ Функция выполняет перемещение по узлам до указанного индекса. И возвращает узел. """
+            if not isinstance(index, int):
+                raise TypeError()
+
+            if not 0 <= index < self.len:  # для for
+                raise IndexError()
+
+            current_node = self.head
+            for _ in range(index):
+                current_node = current_node.next
+
+            return current_node
+
+        @staticmethod
+        def linked_nodes(left_node: Node, right_node: Optional[Node] = None) -> None:
+            """
+            Функция, которая связывает между собой два узла.
+
+            :param left_node: Левый или предыдущий узел
+            :param right_node: Правый или следующий узел
+            """
+            left_node.next = right_node
+
+        def __getitem__(self, index: int) -> Any:
+            """ Метод возвращает значение узла по указанному индексу. """
+            node = self.step_by_step_on_nodes(index)
+            return node.value
+
+        def __setitem__(self, index: int, value: Any) -> None:
+            """ Метод устанавливает значение узла по указанному индексу. """
+            node = self.step_by_step_on_nodes(index)
+            node.value = value
+
+        def to_list(self) -> list:
+            return [linked_list_value for linked_list_value in self]
+
+        def __repr__(self) -> str:
+            return f"{self.__class__.__name__}({self.to_list()})"
+
+        def __str__(self) -> str:
+            return f"{self.to_list()}"
+
+        def __delitem__(self, index: int):
+            if not isinstance(index, int):
+                raise TypeError()
+
+            if not 0 <= index < self.len:  # для for
+                raise IndexError()
+
+            if index == 0:
+                self.head = self.head.next
+            elif index == self.len - 1:
+                tail = self.step_by_step_on_nodes(index-1)
+                tail.next = None
+            else:
+                prev_node = self.step_by_step_on_nodes(index-1)
+                del_node = prev_node.next
+                next_node = del_node.next
+
+                self.linked_nodes(prev_node, next_node)
+
+            self.len -= 1
+
+        def clear(self):
+            self.head = self.tail = None
+            self.len = 0
+
+
+    if __name__ == "__main__":
+        list_ = [1, 2, 3]
+
+        ll = LinkedList(list_)
+        print(ll)
+
+        ll.append(100)
+        print(ll)
+  learner_created: false
+- name: drivers.py
+  visible: true
+  text: |
+    from typing import Iterable
+    from abc import ABC, abstractmethod
+
+
+    class IStructureDriver(ABC):
+        @abstractmethod
+        def read(self) -> Iterable:
+            """
+            Считывает информацию из драйвера и возвращает её для объекта, использующего этот драйвер
+
+            :return Последовательность элементов, считанная драйвером, для объекта
+            """
+            pass
+
+        @abstractmethod
+        def write(self, data: Iterable) -> None:
+            """
+            Получает информацию из объекта, использующего этот драйвер, и записывает её в драйвер
+
+            :param data Последовательность элементов, полученная от объекта, для записи драйвером
+            """
+            pass
+
+
+    class SimpleFileDriver(IStructureDriver):
+        def __init__(self, filename):
+            self.filename = filename
+
+        def read(self) -> Iterable:
+            with open(self.filename) as f:
+                return [int(line) for line in f]
+
+        def write(self, data: Iterable) -> None:
+            with open(self.filename, "w") as f:
+                for value in data:
+                    f.write(str(value))
+                    f.write('\n')
+
+        def __repr__(self):
+            return f"{self.__class__.__name__}(\"{self.filename}\")"
+
+
+    if __name__ == '__main__':
+        write_data = [1, 2, 3]
+        driver = SimpleFileDriver('tmp.txt')
+        driver.write(write_data)
+
+        read_data = driver.read()
+        print(read_data)
+  learner_created: false
+- name: factory_method.py
+  visible: true
+  text: |
+    from abc import ABC, abstractmethod
+
+    from drivers import IStructureDriver, SimpleFileDriver
+
+
+    class DriverFactoryMethod(ABC):
+        @classmethod
+        @abstractmethod
+        def get_driver(cls) -> IStructureDriver:
+            ...
+
+
+    class SimpleFileFactoryMethod(DriverFactoryMethod):
+        DEFAULT_NAME = 'untitled.txt'
+
+        @classmethod
+        def get_driver(cls) -> IStructureDriver:
+            filename = input('Введите название текстового файла: (.txt)').strip()
+            filename = filename or cls.DEFAULT_NAME
+            if not filename.endswith('.txt'):
+                filename = f'{filename}.txt'
+
+            return SimpleFileDriver(filename)
+
+
+    if __name__ == '__main__':
+        driver = SimpleFileFactoryMethod.get_driver()
+        print(driver)
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

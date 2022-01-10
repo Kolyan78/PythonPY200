@@ -1,0 +1,1 @@
+Введите название текстового файла: (.txt): SimpleFileDriver("untitled.txt")

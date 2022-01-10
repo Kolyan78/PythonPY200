@@ -1,0 +1,1 @@
+Node(first_node, Node(second_node)) Node(second_node, None)

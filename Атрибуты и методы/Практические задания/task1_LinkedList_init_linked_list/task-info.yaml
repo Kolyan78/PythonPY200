@@ -1,0 +1,122 @@
+type: output
+files:
+- name: tests/output.txt
+  visible: false
+  text: |
+    [Node(1, Node(2)), Node(2, Node(3)), Node(3, None)]
+  learner_created: false
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 429
+    length: 77
+    placeholder_text: '...  # TODO обернуть все значения в класс Node и поместить
+      их в python список'
+    initial_state:
+      length: 77
+      offset: 429
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '[Node(value) for value in data]'
+  - offset: 516
+    length: 46
+    placeholder_text: '# TODO составьте алгоритм, который свяжет узлы'
+    initial_state:
+      length: 46
+      offset: 516
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      for i in range(len(self.list_nodes) - 1):
+                  current_node = self.list_nodes[i]
+                  next_node = self.list_nodes[i + 1]
+                  self.linked_nodes(current_node, next_node)
+  - offset: 568
+    length: 36
+    placeholder_text: '# TODO каким должен быть этот метод?'
+    initial_state:
+      length: 36
+      offset: 568
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: '@staticmethod'
+  text: |
+    from typing import Iterable, Optional
+
+    from node import Node
+
+
+    class LinkedList:
+        def __init__(self, data: Iterable = None):
+            """Конструктор связного списка"""
+            self.list_nodes = []
+            if data is not None:
+                self.init_linked_list(data)
+
+        def init_linked_list(self, data: Iterable):
+            """ Метод, который создает вспомогательный список и связывает в нём узлы. """
+            self.list_nodes = ...  # TODO обернуть все значения в класс Node и поместить их в python список
+
+            # TODO составьте алгоритм, который свяжет узлы
+
+        # TODO каким должен быть этот метод?
+        def linked_nodes(left_node: Node, right_node: Optional[Node] = None) -> None:
+            """
+            Функция, которая связывает между собой два узла.
+
+            :param left_node: Левый или предыдущий узел
+            :param right_node: Правый или следующий узел
+            """
+            left_node.set_next(right_node)
+
+        def __str__(self) -> str:
+            return str(self.list_nodes)
+
+
+    if __name__ == "__main__":
+        list_ = [1, 2, 3]
+        linked_list = LinkedList(list_)
+        print(linked_list)
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: node.py
+  visible: true
+  text: |
+    from typing import Any, Optional
+
+
+    class Node:
+        """ Класс, который описывает узел связного списка. """
+
+        def __init__(self, value: Any, next_: Optional["Node"] = None):
+            """
+            Создаем новый узел для односвязного списка
+            :param value: Любое значение, которое помещено в узел
+            :param next_: следующий узел, если он есть
+            """
+            self.value = value
+
+            self.next = None
+            self.set_next(next_)
+
+        def __repr__(self) -> str:
+            return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"
+
+        def __str__(self) -> str:
+            return str(self.value)
+
+        def is_valid(self, node: Any) -> None:
+            if not isinstance(node, (type(None), Node)):
+                raise TypeError
+
+        def set_next(self, next_: Optional["Node"] = None) -> None:
+            self.is_valid(next_)
+            self.next = next_
+  learner_created: false
+status: Unchecked
+record: -1

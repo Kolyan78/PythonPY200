@@ -1,0 +1,55 @@
+type: output
+files:
+- name: tests/output.txt
+  visible: false
+  text: |
+    50
+    538.195520835486
+  learner_created: false
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 388
+    length: 47
+    placeholder_text: '...  # TODO вызываем метод area базового класса'
+    initial_state:
+      length: 47
+      offset: 388
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: super().area()
+  text: |
+    class Rectangle:
+        """ Базовый класс. """
+
+        def __init__(self, a, b):
+            self.a = a
+            self.b = b
+
+        def area(self):
+            return self.a * self.b
+
+
+    class RectangleFoot(Rectangle):
+        """ Производный класс. Прямоугольник в футах """
+        FOOT_IN_METERS = 0.3048  # столько метров в один футе
+
+        def area(self):
+            """ Переводим площадь в футы. """
+            area = ...  # TODO вызываем метод area базового класса
+            return area / (self.FOOT_IN_METERS ** 2)
+
+
+    if __name__ == "__main__":
+        rect = Rectangle(5, 10)
+        print(rect.area())
+
+        rect_foot = RectangleFoot(5, 10)
+        print(rect_foot.area())
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+status: Unchecked
+record: -1

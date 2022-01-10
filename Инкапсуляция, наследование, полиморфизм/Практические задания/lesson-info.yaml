@@ -1,0 +1,11 @@
+content:
+- task7_Figure_super
+- task4_Figure_polymorphism_inheritance
+- task4_Figure_polymorphism_with_super
+- task1_Node_encapsulation
+- task2_Node_setter
+- task7_LinkedList_append_tail
+- task1_LinkedList_head_tail_property
+- task3_LinkedList__add__
+- task4_LinkedList__iadd__
+- task4_LinkedList__radd__

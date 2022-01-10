@@ -1,0 +1,54 @@
+type: edu
+files:
+- name: task.py
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 44
+    placeholder_text: '# TODO написать класс Glass согласно условию'
+    initial_state:
+      length: 44
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Glass:
+          def __init__(self, material: str):
+              self.material = material
+
+          def get_material(self):
+              return self.material
+  text: |+
+    # TODO написать класс Glass согласно условию
+
+
+    if __name__ == "__main__":
+        ...
+
+  learner_created: false
+- name: tests/test_task.py
+  visible: false
+  text: |
+    import unittest
+
+    from task import Glass
+
+
+    class TestCase(unittest.TestCase):
+        # todo check get_material method
+
+        def test_get_material(self):
+            material = "paper"
+            glass = Glass(material=material)
+            self.assertEqual(material, glass.get_material(),
+                             msg="Метод get_material должен возвращать материал стакана.")
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: tests/__init__.py
+  visible: false
+  learner_created: false
+status: Unchecked
+record: -1

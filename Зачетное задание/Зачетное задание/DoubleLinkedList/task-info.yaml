@@ -1,0 +1,40 @@
+type: edu
+files:
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: task.py
+  visible: true
+  text: |
+    class LinkedList:
+        ...
+
+
+    class DoubleLinkedList(LinkedList):
+        ...
+
+
+    if __name__ == "__main__":
+        ...
+  learner_created: false
+- name: tests/__init__.py
+  visible: false
+  learner_created: false
+- name: tests/test_task.py
+  visible: false
+  text: |
+    import unittest
+
+
+    # todo: replace this with an actual test
+    class TestCase(unittest.TestCase):
+        def test_add(self):
+            ...
+  learner_created: false
+- name: node.py
+  visible: true
+  text: |
+    ...
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,2 @@
+Node(1, Node(2, None))
+Node(2, None)

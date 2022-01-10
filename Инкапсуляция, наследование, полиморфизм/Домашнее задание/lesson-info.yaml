@@ -1,0 +1,8 @@
+content:
+- task1_all_attr_all_method
+- task1_Date_property
+- task3_LinkedList__mul__
+- task4_LinkedList__imul__
+- task4_LinkedList__rmul__
+- task5_LinkedList__eq__
+- task5_LinkedList__lt__

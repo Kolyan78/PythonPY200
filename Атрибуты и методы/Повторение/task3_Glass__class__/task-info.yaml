@@ -1,0 +1,29 @@
+type: output
+files:
+- name: tests/output.txt
+  visible: false
+  text: |
+    <class '__main__.Glass'>
+    <class '__main__.Glass'>
+    True
+  learner_created: false
+- name: main.py
+  visible: true
+  text: |
+    class Glass:
+        ...
+
+
+    if __name__ == "__main__":
+        glass = Glass()
+
+        print(type(glass))
+        print(glass.__class__)
+
+        print(type(glass) == glass.__class__)
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+status: Unchecked
+record: -1

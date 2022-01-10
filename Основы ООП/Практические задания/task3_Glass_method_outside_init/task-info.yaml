@@ -1,0 +1,111 @@
+type: output
+files:
+- name: tests/output.txt
+  visible: false
+  text: |
+    200
+    100
+  learner_created: false
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 791
+    length: 240
+    placeholder_text: |-
+      #  TODO заменить на метод
+              if not isinstance(capacity_volume, (int, float)):
+                  raise TypeError
+              if not capacity_volume > 0:
+                  raise ValueError
+              self.capacity_volume = capacity_volume  # объем стакана
+    initial_state:
+      length: 240
+      offset: 144
+    initialized_from_dependency: false
+    selected: false
+    status: Solved
+    encrypted_possible_answer: |-
+      self.capacity_volume = None
+              self.init_capacity_volume(capacity_volume)
+  - offset: 1256
+    length: 77
+    placeholder_text: '#  TODO создать метод, который будет инициализировать атрибут
+      capacity_volume'
+    initial_state:
+      length: 77
+      offset: 609
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: |2-
+          def init_capacity_volume(self, capacity_volume: Union[int, float]):
+              if not isinstance(capacity_volume, (int, float)):
+                  raise TypeError
+              if not capacity_volume > 0:
+                  raise ValueError
+              self.capacity_volume = capacity_volume  # объем стакана
+  - offset: 1367
+    length: 68
+    placeholder_text: '...  # TODO инициализировать экземпляр класса Glass'
+    initial_state:
+      length: 51
+      offset: 720
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: 'glass = Glass(200, 100)  # экземпляр класса'
+  - offset: 1446
+    length: 69
+    placeholder_text: '...)  # TODO распечатать атрибут capacity_volume'
+    initial_state:
+      length: 48
+      offset: 782
+    initialized_from_dependency: false
+    selected: false
+    status: Solved
+    encrypted_possible_answer: glass.capacity_volume)
+  - offset: 1526
+    length: 69
+    placeholder_text: '...)  # TODO распечатать атрибут occupied_volume'
+    initial_state:
+      length: 48
+      offset: 841
+    initialized_from_dependency: false
+    selected: false
+    status: Solved
+    encrypted_possible_answer: glass.occupied_volume)
+  text: |
+    from typing import Union
+
+
+    class Glass:
+        def __init__(self, capacity_volume: Union[int, float], occupied_volume: Union[int, float]):
+            #  TODO заменить на метод
+            if not isinstance(capacity_volume, (int, float)):
+                raise TypeError
+            if not capacity_volume > 0:
+                raise ValueError
+            self.capacity_volume = capacity_volume  # объем стакана
+
+            if not isinstance(occupied_volume, (int, float)):
+                raise TypeError
+            if occupied_volume < 0:
+                raise ValueError
+            self.occupied_volume = occupied_volume  # объем жидкости в стакане
+
+    #  TODO создать метод, который будет инициализировать атрибут capacity_volume
+
+
+    if __name__ == "__main__":
+        ...  # TODO инициализировать экземпляр класса Glass
+        print(...)  # TODO распечатать атрибут capacity_volume
+        print(...)  # TODO распечатать атрибут occupied_volume
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 03 Jan 2022 11:02:37 UTC
+record: -1

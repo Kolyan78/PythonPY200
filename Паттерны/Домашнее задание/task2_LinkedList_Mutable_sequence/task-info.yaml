@@ -1,0 +1,47 @@
+type: theory
+files:
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 49
+    placeholder_text: '# TODO Реализовать LinkedList как MutableSequence'
+    initial_state:
+      length: 49
+      offset: 0
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      from collections.abc import MutableSequence
+      from typing import Any
+
+
+      class LinkedList(MutableSequence):
+          def insert(self, index: int, value: Any) -> None:
+              pass
+
+          def __getitem__(self, i: int) -> Any:
+              pass
+
+          def __setitem__(self, i: int, o: Any) -> None:
+              pass
+
+          def __delitem__(self, i: int) -> None:
+              pass
+
+          def __len__(self) -> int:
+              pass
+  text: |
+    # TODO Реализовать LinkedList как MutableSequence
+
+
+    if __name__ == "__main__":
+        ...
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

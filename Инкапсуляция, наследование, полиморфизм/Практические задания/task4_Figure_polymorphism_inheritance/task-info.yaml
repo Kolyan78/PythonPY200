@@ -1,0 +1,84 @@
+type: output
+files:
+- name: tests/output.txt
+  visible: false
+  text: |
+    Вызван метод класса Figure
+    Вызван метод класса Rectangle
+    Вызван метод класса Circle
+  learner_created: false
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 238
+    length: 59
+    placeholder_text: '...  # TODO определить конструктор и перегрузить метод area'
+    initial_state:
+      length: 59
+      offset: 238
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      def __init__(self, a, b):
+              self.a = a
+              self.b = b
+
+          def area(self):
+              print(f"Вызван метод класса {self.__class__.__name__}")
+              return self.a * self.b
+  - offset: 364
+    length: 59
+    placeholder_text: '...  # TODO определить конструктор и перегрузить метод area'
+    initial_state:
+      length: 59
+      offset: 364
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      def __init__(self, r):
+              self.r = r
+
+          def area(self):
+              print(f"Вызван метод класса {self.__class__.__name__}")
+              return math.pi * self.r ** 2
+  text: |
+    import math
+
+
+    class Figure:
+        """ Базовый класс. """
+
+        def area(self):
+            print(f"Вызван метод класса {self.__class__.__name__}")
+            return None
+
+
+    class Rectangle(Figure):
+        """ Производный класс. Прямоугольник. """
+
+        ...  # TODO определить конструктор и перегрузить метод area
+
+
+    class Circle(Figure):
+        """ Производный класс. Круг. """
+
+        ...  # TODO определить конструктор и перегрузить метод area
+
+
+    if __name__ == "__main__":
+        fig = Figure()
+        fig.area()
+
+        rect = Rectangle(5, 10)
+        rect.area()
+
+        circle = Circle(5)
+        circle.area()
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+status: Unchecked
+record: -1

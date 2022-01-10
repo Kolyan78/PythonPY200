@@ -1,0 +1,8 @@
+[Node(1, Node(2)), Node(2, Node(3)), Node(3, None)]
+Вызван метод "__getitem__"
+1
+Вызван метод "__getitem__"
+2
+Вызван метод "__getitem__"
+3
+Вызван метод "__getitem__"

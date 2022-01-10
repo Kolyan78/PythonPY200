@@ -1,0 +1,56 @@
+type: output
+files:
+- name: tests/output.txt
+  visible: false
+  text: |
+    1 a
+    2 b
+    3 c
+  learner_created: false
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 65
+    length: 41
+    placeholder_text: '...):  # TODO Наследование от класса dict'
+    initial_state:
+      length: 41
+      offset: 65
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 'dict):'
+  - offset: 111
+    length: 41
+    placeholder_text: '...  # TODO переопределить метод __iter__'
+    initial_state:
+      length: 41
+      offset: 111
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      def __iter__(self) -> Iterator[Tuple[Hashable, Any]]:
+              return zip(self.keys(), self.values())
+  text: |
+    from typing import Iterator, Tuple, Hashable, Any
+
+
+    class MyDict(...):  # TODO Наследование от класса dict
+        ...  # TODO переопределить метод __iter__
+
+
+    if __name__ == "__main__":
+        my_dict = MyDict({
+            1: "a",
+            2: "b",
+            3: "c"
+        })
+        for key, value in my_dict:
+            print(key, value)
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+status: Unchecked
+record: -1

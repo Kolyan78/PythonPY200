@@ -1,0 +1,72 @@
+type: theory
+files:
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 136
+    length: 840
+    placeholder_text: '#  TODO инициализировать объект "Стакан"'
+    initial_state:
+      length: 40
+      offset: 144
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: |-
+      if not isinstance(capacity_volume, (int, float)):
+                  raise TypeError
+              if not capacity_volume > 0:
+                  raise ValueError
+              self.capacity_volume = capacity_volume  # объем стакана
+
+              if not isinstance(occupied_volume, (int, float)):
+                  raise TypeError
+              if occupied_volume < 0:
+                  raise ValueError
+              self.occupied_volume = occupied_volume  # объем жидкости в стакане
+  - offset: 1008
+    length: 82
+    placeholder_text: '...  # TODO инициализировать два объекта типа Glass'
+    initial_state:
+      length: 51
+      offset: 218
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: |-
+      glass1 = Glass(200, 100)  # экземпляр класса
+          glass2 = Glass(500, 50)  # экземпляр класса
+  - offset: 1096
+    length: 57
+    placeholder_text: '# TODO попробовать инициализировать не корректные объекты'
+    initial_state:
+      length: 57
+      offset: 275
+    initialized_from_dependency: false
+    selected: false
+    status: Solved
+    encrypted_possible_answer: |-
+      incorrect_capacity_volume_type = ...
+          incorrect_occupied_volume_value = ...
+  text: |
+    from typing import Union
+
+
+    class Glass:
+        def __init__(self, capacity_volume: Union[int, float], occupied_volume: Union[int, float]):
+            #  TODO инициализировать объект "Стакан"
+
+
+    if __name__ == "__main__":
+        ...  # TODO инициализировать два объекта типа Glass
+
+        # TODO попробовать инициализировать не корректные объекты
+  learner_created: false
+status: Solved
+feedback:
+  time: Sun, 02 Jan 2022 16:45:41 UTC
+record: -1
+post_submission_on_open: true

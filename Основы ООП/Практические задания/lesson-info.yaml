@@ -1,0 +1,7 @@
+content:
+- task1_Glass__init__
+- task2_Glass_attr
+- task3_Glass_method_outside_init
+- task4_Glass__repr__
+- task5_Glass__str__
+- task6_Node_methods

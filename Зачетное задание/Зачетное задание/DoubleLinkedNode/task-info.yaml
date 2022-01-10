@@ -1,0 +1,52 @@
+type: edu
+files:
+- name: task.py
+  visible: true
+  text: |
+    class Node:
+        """ Класс, который описывает узел связного списка. """
+        ...
+
+
+    class DoubleLinkedNode(Node):
+        ...
+
+
+    if __name__ == "__main__":
+        ...
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: tests/__init__.py
+  visible: false
+  learner_created: false
+- name: tests/test_task.py
+  visible: false
+  text: |
+    import unittest
+
+    from task import Node
+
+
+    # todo: replace this with an actual test
+    class TestCase(unittest.TestCase):
+        def test_is_valid(self):
+            ...
+            # node = Node(None)
+            #
+            # msg = f"Метод is_valid должен генерировать ошибку \"TypeError\", " \
+            #       f"если тип проверяемого объекта не \"{Node.__name__}\" или не \"{type(None).__name__}"
+            # with self.assertRaises(TypeError, msg=msg):
+            #     node.is_valid("incorrect_type")
+
+        def test_init_node(self):
+            # todo init node with next and without
+            ...
+
+        def test_set_next(self):
+            # todo test set next
+            ...
+  learner_created: false
+status: Unchecked
+record: -1

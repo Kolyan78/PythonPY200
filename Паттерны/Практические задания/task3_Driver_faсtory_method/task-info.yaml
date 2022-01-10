@@ -1,0 +1,119 @@
+type: output
+files:
+- name: tests/output.txt
+  visible: false
+  text: |
+    Введите название текстового файла: (.txt): SimpleFileDriver("untitled.txt")
+  learner_created: false
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 94
+    length: 36
+    placeholder_text: '# TODO Реализовать абстрактный класс'
+    initial_state:
+      length: 36
+      offset: 94
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class DriverFactoryMethod(ABC):
+          @classmethod
+          @abstractmethod
+          def get_driver(cls) -> IStructureDriver:
+              ...
+  - offset: 578
+    length: 63
+    placeholder_text: '...  # TODO с помощью фабричного метода инциализировать драйвер'
+    initial_state:
+      length: 63
+      offset: 578
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: SimpleFileFactoryMethod.get_driver()
+  text: |
+    from abc import ABC, abstractmethod
+
+    from drivers import IStructureDriver, SimpleFileDriver
+
+
+    # TODO Реализовать абстрактный класс
+
+
+    class SimpleFileFactoryMethod(DriverFactoryMethod):
+        DEFAULT_NAME = 'untitled.txt'
+
+        @classmethod
+        def get_driver(cls) -> IStructureDriver:
+            filename = input('Введите название текстового файла: (.txt): ').strip()
+            filename = filename or cls.DEFAULT_NAME
+            if not filename.endswith('.txt'):
+                filename = f'{filename}.txt'
+
+            return SimpleFileDriver(filename)
+
+
+    if __name__ == '__main__':
+        driver = ...  # TODO с помощью фабричного метода инциализировать драйвер
+        print(driver)
+  learner_created: false
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: drivers.py
+  visible: true
+  text: |
+    from typing import Iterable
+    from abc import ABC, abstractmethod
+
+
+    class IStructureDriver(ABC):
+        @abstractmethod
+        def read(self) -> Iterable:
+            """
+            Считывает информацию из драйвера и возвращает её для объекта, использующего этот драйвер
+
+            :return Последовательность элементов, считанная драйвером, для объекта
+            """
+            pass
+
+        @abstractmethod
+        def write(self, data: Iterable) -> None:
+            """
+            Получает информацию из объекта, использующего этот драйвер, и записывает её в драйвер
+
+            :param data Последовательность элементов, полученная от объекта, для записи драйвером
+            """
+            pass
+
+
+    class SimpleFileDriver(IStructureDriver):
+        def __init__(self, filename):
+            self.filename = filename
+
+        def read(self) -> Iterable:
+            with open(self.filename) as f:
+                return [int(line) for line in f]
+
+        def write(self, data: Iterable) -> None:
+            with open(self.filename, "w") as f:
+                for value in data:
+                    f.write(str(value))
+                    f.write('\n')
+
+        def __repr__(self):
+            return f"{self.__class__.__name__}(\"{self.filename}\")"
+
+
+    if __name__ == '__main__':
+        write_data = [1, 2, 3]
+        driver = SimpleFileDriver('tmp.txt')
+        driver.write(write_data)
+
+        read_data = driver.read()
+        print(read_data)
+  learner_created: false
+status: Unchecked
+record: -1
