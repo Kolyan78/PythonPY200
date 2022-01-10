@@ -27,7 +27,7 @@ class Circle:
         if value <= 0: # если величина меньше или равна нулю, то выдать ошибку
             raise ValueError("Значение не может быть меньше или равно нулю")
 
-    def __str__(self):
+    def __repr__(self):
         return f"Радиус круга - {self.radius}\n" \
                f"Площадь круга - {self.get_square()}\n" \
                f"Длина круга - {self.get_length()}\n" \
