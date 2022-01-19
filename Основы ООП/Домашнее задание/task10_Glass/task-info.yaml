@@ -1,32 +1,5 @@
 type: edu
 files:
-- name: task.py
-  visible: true
-  placeholders:
-  - offset: 0
-    length: 44
-    placeholder_text: '# TODO написать класс Glass согласно условию'
-    initial_state:
-      length: 44
-      offset: 0
-    initialized_from_dependency: false
-    selected: false
-    status: Unchecked
-    encrypted_possible_answer: |-
-      class Glass:
-          def __init__(self, material: str):
-              self.material = material
-
-          def get_material(self):
-              return self.material
-  text: |+
-    # TODO написать класс Glass согласно условию
-
-
-    if __name__ == "__main__":
-        ...
-
-  learner_created: false
 - name: tests/test_task.py
   visible: false
   text: |
@@ -50,5 +23,35 @@ files:
 - name: tests/__init__.py
   visible: false
   learner_created: false
-status: Unchecked
+- name: task.py
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 0
+    placeholder_text: '# TODO написать класс Glass согласно условию'
+    initial_state:
+      length: 44
+      offset: 0
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: |-
+      class Glass:
+          def __init__(self, material: str):
+              self.material = material
+
+          def get_material(self):
+              return self.material
+  text: |+
+    # TODO написать класс Glass согласно условию
+
+
+    if __name__ == "__main__":
+        ...
+
+  learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 10 Jan 2022 13:02:34 UTC
 record: -1

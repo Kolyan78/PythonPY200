@@ -12,29 +12,29 @@ files:
   visible: true
   placeholders:
   - offset: 1992
-    length: 28
+    length: 125
     placeholder_text: '...  # TODO проверка индекса'
     initial_state:
       length: 28
       offset: 1992
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       if not isinstance(index, int):
                   raise TypeError()
 
               if not 0 <= index < self.len:  # для for
                   raise IndexError()
-  - offset: 2030
-    length: 29
+  - offset: 2119
+    length: 411
     placeholder_text: '...  # TODO алгоритм удаления'
     initial_state:
       length: 29
       offset: 2030
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       if index == 0:
                   self.head = self.head.next
@@ -183,5 +183,8 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 17 Jan 2022 19:37:22 UTC
 record: -1

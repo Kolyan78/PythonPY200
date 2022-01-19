@@ -10,10 +10,18 @@
 """
 from math import pi
 class Circle:
+    count = 0
     def __init__(self, radius):
-        self.radius = None # Установить значение переменной None (кстати, а зачем это надо делать, если она после проверки будет установлена в заданное значение?)
+        type(self).count += 1
+        self.radius = None
+        """
+        Установить значение переменной None
+        (кстати, а зачем это надо делать, если она после проверки будет установлена в заданное значение?)
+        Может быть здесь можно обойтись без этой строки?
+        """
         self.__check_value(radius)
         self.radius = radius
+        self.diametr = self.radius * 2
 
     @staticmethod
     def __check_value(value):
@@ -82,3 +90,4 @@ circle2 = Circle(2.5) # создадим второй экзепляр с дру
 circle3 = Circle(1.2) # и третий экземпляр, также с другми значением радиуса
 print(circle2) # выведем на экран второй экземпляр
 print(circle3) # выведем на экран третий экземпляр
+print(Circle.count)

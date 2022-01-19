@@ -1,6 +1,7 @@
 from typing import Iterable, Optional
 
 from node import Node
+#import random
 
 
 class LinkedList:
@@ -12,11 +13,14 @@ class LinkedList:
 
     def init_linked_list(self, data: Iterable):
         """ Метод, который создает вспомогательный список и связывает в нём узлы. """
-        self.list_nodes = ...  # TODO обернуть все значения в класс Node и поместить их в python список
+        self.list_nodes = [Node(value) for value in data]
 
-        # TODO составьте алгоритм, который свяжет узлы
+        for i in range(len(self.list_nodes) - 1):
+            cur_node = self.list_nodes[i]
+            next_node = self.list_nodes[i + 1]
+            self.linked_nodes(cur_node, next_node)
 
-    # TODO каким должен быть этот метод?
+    @staticmethod
     def linked_nodes(left_node: Node, right_node: Optional[Node] = None) -> None:
         """
         Функция, которая связывает между собой два узла.
@@ -31,6 +35,8 @@ class LinkedList:
 
 
 if __name__ == "__main__":
+    #list_ = [random.randint(0,20) for x in range(12)]
+    #print(list_)
     list_ = [1, 2, 3]
     linked_list = LinkedList(list_)
     print(linked_list)

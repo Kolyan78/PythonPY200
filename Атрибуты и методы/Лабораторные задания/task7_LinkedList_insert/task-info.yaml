@@ -14,14 +14,14 @@ files:
   visible: true
   placeholders:
   - offset: 2863
-    length: 49
+    length: 540
     placeholder_text: '...  # TODO реализовать алгоритм вставки элемента'
     initial_state:
       length: 49
       offset: 2863
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       if not isinstance(index, int):
                   raise TypeError()
@@ -199,5 +199,8 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 17 Jan 2022 19:51:33 UTC
 record: -1

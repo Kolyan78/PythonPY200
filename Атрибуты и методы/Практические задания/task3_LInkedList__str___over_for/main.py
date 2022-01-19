@@ -34,6 +34,10 @@ class LinkedList:
         """
         left_node.set_next(right_node)
 
+    # def __repr__(self) -> str:
+    #     return str(self.list_nodes)
+
+
     def step_by_step_on_nodes(self, index: int) -> Node:
         """ Функция выполняет перемещение по узлам до указанного индекса. И возвращает узел. """
 
@@ -55,7 +59,7 @@ class LinkedList:
         return node.value
 
     def __str__(self) -> str:
-        return return str(self.list_nodes)  # TODO заменить на list comprehansion
+        return f"{[value for value in self]}"
 
 
 if __name__ == '__main__':

@@ -62,7 +62,6 @@ class LinkedList:
 if __name__ == "__main__":
     list_ = [1, 2, 3]
     linked_list = LinkedList(list_)
-
     print("Проверка вхождения числа 2 в связный список")
     print(2 in linked_list)
     print("Проверка вхождения числа 5 в связный список")

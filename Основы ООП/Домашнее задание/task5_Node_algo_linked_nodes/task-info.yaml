@@ -10,25 +10,25 @@ files:
   visible: true
   placeholders:
   - offset: 628
-    length: 58
+    length: 22
     placeholder_text: '...  # TODO метод должен возвращать значение текущего узла'
     initial_state:
       length: 58
       offset: 628
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: return str(self.value)
-  - offset: 1325
-    length: 68
+  - offset: 1289
+    length: 157
     placeholder_text: '# TODO реализуйте алгоритм, который свяжет между собой узлы
       в списке'
     initial_state:
       length: 68
       offset: 1325
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       for i in range(len(list_nodes) - 1):
               current_node = list_nodes[i]
@@ -88,5 +88,8 @@ files:
 - name: __init__.py
   visible: false
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 10 Jan 2022 13:12:35 UTC
 record: -1

@@ -16,47 +16,47 @@ files:
   visible: true
   placeholders:
   - offset: 183
-    length: 49
+    length: 12
     placeholder_text: '# TODO атрибут, хранящий длину последовательности'
     initial_state:
       length: 49
       offset: 183
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: self.len = 0
-  - offset: 613
-    length: 45
+  - offset: 576
+    length: 31
     placeholder_text: '# TODO устанавливаем длину последовательности'
     initial_state:
       length: 45
       offset: 613
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: self.len = len(self.list_nodes)
-  - offset: 1487
-    length: 43
+  - offset: 1436
+    length: 86
     placeholder_text: '# TODO проверка корректности границ индекса'
     initial_state:
       length: 43
       offset: 1487
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       if not 0 <= index < self.len:  # для for
                   raise IndexError()
-  - offset: 2023
-    length: 77
+  - offset: 2010
+    length: 69
     placeholder_text: '# TODO с помощью цикла for распечатать в столбик все значения
       связного списка'
     initial_state:
       length: 77
       offset: 2023
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       for value in linked_list:
               print(value)
@@ -165,5 +165,8 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 17 Jan 2022 17:53:56 UTC
 record: -1

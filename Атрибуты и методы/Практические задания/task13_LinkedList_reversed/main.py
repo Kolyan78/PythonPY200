@@ -53,6 +53,7 @@ class LinkedList:
         """ Метод возвращает значение узла по указанному индексу. """
         print("Вызван метод \"__getitem__\"")
         node = self.step_by_step_on_nodes(index)
+        #print(node.value)
         return node.value
 
     def __str__(self) -> str:
@@ -60,6 +61,7 @@ class LinkedList:
 
     def __len__(self):
         print("Вызван метод \"__len__\"")
+
         return self.len
 
 

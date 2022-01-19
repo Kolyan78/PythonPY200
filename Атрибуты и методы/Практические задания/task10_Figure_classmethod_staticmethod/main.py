@@ -1,31 +1,30 @@
 import math
 
+def area_by_angle(a, b, angle):
+    """ Формула площади по двум сторонам и углу между ними. """
+    return 0.5 * a * b * math.sin(angle)
+
+def area_by_height(a, h):
+    """ Формула площади по основанию и высоте. """
+    return 0.5 * a * h
 
 class TriangleCalculator:
     """ Класс-калькулятор площадей треугольников. """
 
-    def area(self, *args):
+    @staticmethod
+    def area(*args):
         """
         Метод, который считает площадь по разным формулам,
          в зависимости от количества переданных аргументов.
         """
         if len(args) == 2:
-            self.area_by_height(*args)
+            return area_by_height(*args)
         if len(args) == 3:
-            self.area_by_angle(*args)
-
-    def area_by_angle(self, a, b, angle):
-        """ Формула площади по двум сторонам и углу между ними. """
-        return 0.5 * a * b * math.sin(angle)
-
-    def area_by_height(self, a, h):
-        """ Формула площади по основанию и высоте. """
-        return 0.5 * a * h
-
+            return area_by_angle(*args)
 
 if __name__ == '__main__':
-    TriangleCalculator().area()  # Работаем через экземпляр
-    TriangleCalculator().area_by_height(5, 10)  # Работаем через экземпляр
+    print(TriangleCalculator().area(2, 3))  # Работаем через экземпляр
+    print(area_by_height(5, 10))  # Работаем через экземпляр
 
-    TriangleCalculator.area()  # Работаем через класс
-    TriangleCalculator.area_by_height(5, 10)  # Работаем через класс
+    print(TriangleCalculator.area(2, 3, 5))  # Работаем через класс
+    print(area_by_height(5, 10))  # Работаем через класс

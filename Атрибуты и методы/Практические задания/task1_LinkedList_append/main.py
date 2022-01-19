@@ -1,5 +1,4 @@
 from typing import Any, Iterable, Optional
-
 from node import Node
 
 
@@ -9,7 +8,9 @@ class LinkedList:
         self.len = 0
         self.head: Optional[Node] = None
 
-        ...  # TODO инициализировать связный список
+        if data is not None:
+            for value in data:
+                self.append(value)
 
     def step_by_step_on_nodes(self, index: int) -> Node:
         """ Функция выполняет перемещение по узлам до указанного индекса. И возвращает узел. """
@@ -49,7 +50,14 @@ class LinkedList:
 
     def append(self, value: Any):
         """ Добавление элемента в конец связного списка. """
-        ...  # TODO реализовать алгоритм добавления узла в конец последовательности
+        add_node = Node(value)
+        if self.head is None:
+            self.head = add_node
+        else:
+            prev_node = self.step_by_step_on_nodes(self.len - 1)
+            self.linked_nodes(prev_node, add_node)
+
+        self.len += 1
 
 
 if __name__ == "__main__":

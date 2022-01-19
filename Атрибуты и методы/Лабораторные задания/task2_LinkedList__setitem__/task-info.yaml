@@ -11,20 +11,20 @@ files:
   visible: true
   placeholders:
   - offset: 1740
-    length: 47
+    length: 113
     placeholder_text: '# TODO реализовать магический метод __setitem__'
     initial_state:
       length: 47
       offset: 1740
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       def __setitem__(self, index: int, value: Any) -> None:
               """ Метод устанавливает значение узла по указанному индексу. """
               node = self.step_by_step_on_nodes(index)
               node.value = value
-  - offset: 2186
+  - offset: 2277
     length: 52
     placeholder_text: '# TODO установить элементу с индексом 1 значение 100'
     initial_state:
@@ -32,7 +32,7 @@ files:
       offset: 2186
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: linked_list[1] = 100
   text: |
     from typing import Iterable, Optional, Any
@@ -155,5 +155,8 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 17 Jan 2022 19:05:04 UTC
 record: -1

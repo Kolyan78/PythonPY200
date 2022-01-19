@@ -10,57 +10,57 @@ files:
   visible: true
   placeholders:
   - offset: 1391
-    length: 36
+    length: 12
     placeholder_text: '...  # TODO подставьте нужную ошибку'
     initial_state:
       length: 36
       offset: 1391
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: IndexError()
-  - offset: 1692
-    length: 6
+  - offset: 1668
+    length: 113
     placeholder_text: '# TODO'
     initial_state:
       length: 6
       offset: 1692
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       node = self.step_by_step_on_nodes(index)
               return node.value
-  - offset: 1739
-    length: 63
+  - offset: 1822
+    length: 56
     placeholder_text: '...  # TODO Метод to_list реализовать через list comprehension.'
     initial_state:
       length: 63
       offset: 1739
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: return [linked_list_value for linked_list_value in
       self]
-  - offset: 1843
-    length: 61
+  - offset: 1919
+    length: 53
     placeholder_text: '...  # TODO c помощью метода to_list реализовать данный метод'
     initial_state:
       length: 61
       offset: 1843
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: return f"{self.__class__.__name__}({self.to_list()})"
-  - offset: 1944
-    length: 61
+  - offset: 2012
+    length: 84
     placeholder_text: '...  # TODO c помощью метода to_list реализовать данный метод'
     initial_state:
       length: 61
       offset: 1944
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: return f"{self.to_list()}"
   text: |
     from typing import Iterable, Optional, Any
@@ -178,5 +178,8 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 17 Jan 2022 18:35:54 UTC
 record: -1

@@ -8,15 +8,15 @@ files:
 - name: main.py
   visible: true
   placeholders:
-  - offset: 1817
-    length: 66
+  - offset: 1890
+    length: 30
     placeholder_text: 'return str(self.list_nodes)  # TODO заменить на list comprehansion'
     initial_state:
       length: 66
       offset: 1817
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: f"{[node_value for node_value in self]}"
   text: |
     from typing import Iterable, Optional, Any
@@ -121,5 +121,8 @@ files:
             self.is_valid(next_)
             self.next = next_
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 17 Jan 2022 17:54:30 UTC
 record: -1
